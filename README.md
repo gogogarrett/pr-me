@@ -8,7 +8,7 @@ Clicking the extension will randomly select a user within your organization and 
 ![Comes with options!](https://monosnap.com/image/1SVxrQVRbZY3qKen4yCHWPPjly1mLu.png)
 
 #### Change Github Organization
-![Change Organization](https://monosnap.com/image/0bJbfGeQoZToxuOFu1z2gGYiS0toM6.png)
+![Change Organization](https://monosnap.com/image/g20NTSjOgqHJesEkWxsSrQOOe78Pau.png)
 
 #### Get feedback!
 ![Get feedback!](https://monosnap.com/image/rreR2Bb9Y6FWW1HfucVZP6TOjzrfbW.png)
