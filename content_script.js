@@ -1,11 +1,21 @@
 var pullRequestReviewer = {
-  githubUrl: "https://api.github.com/orgs/blake-education/public_members",
-
   requestReviewer: function() {
     var req = new XMLHttpRequest();
-    req.open("GET", this.githubUrl, true);
-    req.onload = this.findUser_.bind(this);
-    req.send(null);
+    that = this;
+
+    this.findOrg(function(org) {
+      url = "https://api.github.com/orgs/" + org + "/public_members";
+
+      req.open("GET", url, true);
+      req.onload = that.findUser_.bind(that);
+      req.send(null);
+    })
+  },
+
+  findOrg: function(callback) {
+    chrome.storage.sync.get({github: 'blake-education', }, function(items) {
+      callback(items.github)
+    });
   },
 
   findUser_: function (e) {
