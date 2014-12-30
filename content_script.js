@@ -7,25 +7,28 @@ var pullRequestReviewer = {
       url = "https://api.github.com/orgs/" + org + "/public_members";
 
       req.open("GET", url, true);
-      req.onload = that.findUser_.bind(that);
+      req.onload = that.findUser.bind(that);
       req.send(null);
     })
   },
 
   findOrg: function(callback) {
-    chrome.storage.sync.get({github: 'blake-education', }, function(items) {
+    chrome.storage.sync.get({github: 'blake-education'}, function(items) {
       callback(items.github)
     });
   },
 
-  findUser_: function (e) {
+  findUser: function (e) {
     var users = JSON.parse(e.target.responseText)
     user = users[Math.floor(Math.random() * users.length)];
-    this.addEyesFor_(user['login']);
+    this.addComment(user['login']);
   },
 
-  addEyesFor_: function (username) {
-    document.getElementById("new_comment_field").value = ':eyes: please -  @' + username;
+  addComment: function (username) {
+    chrome.storage.sync.get('comment', function(item) {
+      finishedComment = item.comment.replace("{{name}}", "@" + username)
+      document.getElementById("new_comment_field").value = finishedComment;
+    });
   }
 }
 

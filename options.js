@@ -1,26 +1,26 @@
 // Saves options to chrome.storage
 function save_options() {
   var github = document.getElementById('github').value;
+  var comment = document.getElementById('comment').value;
+
   chrome.storage.sync.set({
     github: github,
+    comment: comment,
   }, function() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
+    status.className = status.className + ' alert alert-success'
     status.textContent = 'Options saved.';
-    setTimeout(function() {
-      status.textContent = '';
-    }, 750);
   });
 }
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
 function restore_options() {
-  // Use default value color = 'red' and likesColor = true.
   chrome.storage.sync.get({
     github: 'blake-education',
+    comment: ':eyes: please - {{name}}',
   }, function(items) {
     document.getElementById('github').value = items.github;
+    document.getElementById('comment').value = items.comment;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
