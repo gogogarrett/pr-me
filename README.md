@@ -2,6 +2,8 @@
 
 This is a simple chrome extension that allows you to easily request feedback from someone within a github organization.
 
+Clicking the extension will randomly select a user within your organization and ping them requesting feedback.
+
 #### Comes with options!
 ![Comes with options!](https://monosnap.com/image/1SVxrQVRbZY3qKen4yCHWPPjly1mLu.png)
 
